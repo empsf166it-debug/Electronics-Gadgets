@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXORA | Premium 3D Smartphone Experience</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: { primary: { 50: '#eef2ff', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', } } } }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+</head>
+<body class="bg-bg-light text-text-light dark:bg-bg-dark dark:text-text-dark font-sans antialiased transition-colors duration-300 overflow-x-hidden">
+
+  <!-- Floating Orbs Background -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-[-1]">
+    <div class="bg-orb w-96 h-96 bg-primary-600/30 top-[-10%] left-[-10%]"></div>
+    <div class="bg-orb w-[500px] h-[500px] bg-cyan-500/20 top-[40%] right-[-10%]" style="animation-delay: 2s;"></div>
+    <div class="bg-orb w-80 h-80 bg-pink-500/20 bottom-[-10%] left-[20%]" style="animation-delay: 4s;"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="fixed w-full top-0 z-50 bg-transparent transition-all duration-300" id="header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        
+        <!-- Logo & Brand -->
+        <div class="flex items-center space-x-2 cursor-pointer" onclick="window.location.href='index.html'">
+          <img src="assets/images/logo.jpg" alt="NEXORA Logo" class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl hover-3d neon-glow object-cover">
+          <span class="brand-font font-black text-xl sm:text-3xl tracking-tighter">NEXORA</span>
+        </div>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex space-x-6 glass px-6 py-3 rounded-full">
+          <a href="index.html" class="hover:text-primary-600 dark:hover:text-primary-400 font-medium transition">Home</a>
+          <a href="about.html" class="hover:text-primary-600 dark:hover:text-primary-400 font-medium transition">About</a>
+          <a href="products.html" class="hover:text-primary-600 dark:hover:text-primary-400 font-medium transition">Explore</a>
+          <a href="product-details.html" class="hover:text-primary-600 dark:hover:text-primary-400 font-medium transition">Compare</a>
+          <a href="dashboard.html" class="hover:text-primary-600 dark:hover:text-primary-400 font-medium transition">Dashboard</a>
+        </nav>
+
+        <!-- Actions -->
+        <div class="flex items-center space-x-4">
+          <a href="login.html" class="hidden lg:flex px-5 py-2 rounded-full bg-gradient-to-r from-primary-600 to-cyan-500 text-white text-sm font-bold shadow-lg shadow-primary-500/30 hover:shadow-xl hover:-translate-y-0.5 transition">Login</a>
+          
+          <div class="flex items-center space-x-3 ml-2 md:border-l border-gray-200 dark:border-gray-700 md:pl-4">
+
+            <a href="checkout.html" class="hover:text-primary-600 transition hover-3d relative">
+              <i class="fas fa-shopping-cart text-lg"></i>
+              <span class="absolute -top-2 -right-2 bg-gradient-to-r from-pink-500 to-primary-600 text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center shadow-lg shadow-primary-500/50 animate-pulse">1</span>
+            </a>
+            <button id="theme-toggle" class="hover-3d transition glass p-2 rounded-full w-9 h-9 flex items-center justify-center">
+              <i class="fas fa-moon text-lg text-indigo-600"></i>
+            </button>
+            <!-- Mobile Menu Toggle -->
+            <button class="lg:hidden hover:text-primary-600 transition hover-3d ml-1 p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden'); document.getElementById('mobile-menu').classList.toggle('flex')">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu Dropdown -->
+      <nav id="mobile-menu" class="hidden lg:hidden flex-col space-y-2 py-4 px-2 border-t border-gray-200 dark:border-gray-700 mt-2 glass rounded-b-2xl absolute w-full left-0 bg-white/95 dark:bg-gray-900/95 shadow-xl z-50 backdrop-blur-xl">
+        <a href="index.html" class="hover:text-primary-600 font-medium px-4 py-2 block">Home</a>
+        <a href="about.html" class="hover:text-primary-600 font-medium px-4 py-2 block">About</a>
+        <a href="products.html" class="hover:text-primary-600 font-medium px-4 py-2 block">Explore</a>
+        <a href="product-details.html" class="hover:text-primary-600 font-medium px-4 py-2 block">Compare</a>
+        <a href="dashboard.html" class="hover:text-primary-600 font-medium px-4 py-2 block">Dashboard</a>
+        <a href="login.html" class="hover:text-primary-600 font-bold text-primary-600 px-4 py-2 block border-t border-gray-200 dark:border-gray-700 mt-2 pt-4">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Massive 3D Hero Section -->
+  <section class="relative pt-32 pb-20 min-h-screen flex items-center perspective-container overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div data-aos="fade-right" data-aos-duration="1200">
+          <div class="inline-flex items-center space-x-2 py-2 px-4 rounded-full glass border-primary-500/50 mb-6 neon-glow">
+            <span class="flex h-3 w-3 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-primary-500"></span>
+            </span>
+            <span class="text-sm font-bold tracking-wider uppercase">Future is Here</span>
+          </div>
+          
+          <h1 class="text-6xl lg:text-8xl font-black leading-[1.1] mb-6 tracking-tighter drop-shadow-2xl">
+            Redefine<br/>
+            <span class="text-gradient">Reality.</span>
+          </h1>
+          <p class="text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-lg leading-relaxed glass p-6 rounded-3xl border-l-4 border-l-primary-600">
+            Immersive 3D displays, quantum processing power, and a design that feels like it belongs in the year 2050.
+          </p>
+          <div class="flex flex-wrap gap-6 items-center">
+            <a href="product-details.html" class="btn-primary py-4 px-10 rounded-full font-bold text-lg hover-3d shadow-[0_0_40px_rgba(79,70,229,0.5)]">
+              Pre-Order X-Pro
+            </a>
+            <a href="#features" class="flex items-center justify-center w-14 h-14 rounded-full glass hover-3d hover:text-primary-600 transition">
+              <i class="fas fa-arrow-down text-xl"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- 3D Floating Phone Display -->
+        <div class="relative flex justify-center perspective-container h-[600px] items-center" data-aos="zoom-in" data-aos-duration="1500">
+          <div class="w-full max-w-[320px] lg:max-w-[440px] relative animate-float hover-3d mx-auto" data-tilt data-tilt-max="20" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+            <div class="absolute inset-0 bg-gradient-to-tr from-primary-600 to-cyan-400 rounded-[3rem] blur-2xl opacity-50"></div>
+            <img src="assets/images/hero-device.jpg" alt="Nexora X-Pro" class="w-full h-auto drop-shadow-[0_30px_50px_rgba(0,0,0,0.5)] rounded-[3rem] object-cover border border-white/20 relative z-10 transform translateZ(50px)">
+            
+            <!-- 3D Floating HUD Elements -->
+            <div class="absolute -left-16 top-1/4 glass-card p-4 rounded-2xl animate-float-delayed z-20 neon-glow" style="transform: translateZ(80px);">
+              <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 rounded-full bg-primary-600/20 flex items-center justify-center">
+                  <i class="fas fa-camera text-primary-500 text-2xl drop-shadow-md"></i>
+                </div>
+                <div>
+                  <p class="font-black text-lg text-gray-900 dark:text-white">200MP</p>
+                  <p class="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-widest">Quantum Sensor</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="absolute -right-10 bottom-1/4 glass-card p-4 rounded-2xl animate-float z-20 neon-glow" style="transform: translateZ(100px);">
+              <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center">
+                  <i class="fas fa-microchip text-cyan-500 text-2xl drop-shadow-md"></i>
+                </div>
+                <div>
+                  <p class="font-black text-lg text-gray-900 dark:text-white">Bionic N9</p>
+                  <p class="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-widest">3nm Architecture</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Parallax Grid -->
+  <section id="features" class="py-32 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-24" data-aos="fade-up">
+        <h2 class="text-5xl md:text-6xl font-black mb-6 tracking-tight">Designed to <span class="text-gradient">Inspire.</span></h2>
+        <p class="text-xl text-gray-500 max-w-2xl mx-auto">Interact with the cards below to see the 3D depth effect.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 perspective-container">
+        <!-- 3D Card 1 -->
+        <div class="glass-card rounded-[2.5rem] relative overflow-hidden group flex flex-col h-full" data-tilt data-aos="fade-up" data-aos-delay="100">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary-600/10 to-transparent z-0"></div>
+          
+          <div class="p-8 relative z-10 transform translateZ(30px) flex-1 flex flex-col">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center text-white text-2xl mb-8 shadow-[0_10px_20px_rgba(79,70,229,0.3)]">
+              <i class="fas fa-eye"></i>
+            </div>
+            <h3 class="text-3xl font-bold mb-4">Holographic Retina</h3>
+            <p class="text-gray-500 leading-relaxed">Colors pop out of the screen with our new 144Hz AMOLED 3D display panel.</p>
+          </div>
+          
+          <div class="relative z-10 transform translateZ(20px) h-56 w-full mt-auto">
+            <img src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Screen" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+        <!-- 3D Card 2 -->
+        <div class="glass-card rounded-[2.5rem] relative overflow-hidden group flex flex-col h-full lg:-translate-y-12" data-tilt data-aos="fade-up" data-aos-delay="200">
+          <div class="absolute inset-0 bg-gradient-to-bl from-cyan-500/10 to-transparent z-0"></div>
+          
+          <div class="p-8 relative z-10 transform translateZ(40px) flex-1 flex flex-col">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white text-2xl mb-8 shadow-[0_10px_20px_rgba(6,182,212,0.3)]">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h3 class="text-3xl font-bold mb-4">HyperCharge 120W</h3>
+            <p class="text-gray-500 leading-relaxed">0 to 100% in just 15 minutes. Never be tethered to a wall again.</p>
+          </div>
+          
+          <div class="relative z-10 transform translateZ(30px) h-56 w-full mt-auto">
+            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Battery" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+        <!-- 3D Card 3 -->
+        <div class="glass-card rounded-[2.5rem] relative overflow-hidden group flex flex-col h-full" data-tilt data-aos="fade-up" data-aos-delay="300">
+          <div class="absolute inset-0 bg-gradient-to-tr from-pink-500/10 to-transparent z-0"></div>
+          
+          <div class="p-8 relative z-10 transform translateZ(50px) flex-1 flex flex-col">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-red-500 flex items-center justify-center text-white text-2xl mb-8 shadow-[0_10px_20px_rgba(236,72,153,0.3)]">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3 class="text-3xl font-bold mb-4">Titanium Core</h3>
+            <p class="text-gray-500 leading-relaxed">Aerospace-grade titanium frame making it the lightest and strongest device.</p>
+          </div>
+          
+          <div class="relative z-10 transform translateZ(40px) h-56 w-full mt-auto">
+            <img src="https://images.unsplash.com/photo-1541560052-5e137f229371?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Titanium" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Exploded View Section -->
+  <section class="py-32 overflow-hidden relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="glass-card rounded-[4rem] p-12 md:p-20 relative overflow-hidden border-2 border-primary-500/30">
+        <div class="absolute top-0 right-0 w-full h-full bg-gradient-to-l from-primary-900/50 to-transparent opacity-50"></div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+          <div class="order-2 lg:order-1 relative flex justify-center" data-aos="fade-right">
+            <div class="relative w-full max-w-[320px] lg:max-w-[440px] perspective-container animate-float mx-auto" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+              <img src="assets/images/hero-internal.jpg" alt="Phone Internal" class="w-full h-auto rounded-[2.5rem] shadow-[0_30px_60px_rgba(79,70,229,0.3)] border border-white/10 object-cover">
+            </div>
+          </div>
+          
+          <div class="order-1 lg:order-2" data-aos="fade-left">
+            <h2 class="text-5xl md:text-6xl font-black mb-8 leading-tight">Engineering <br/><span class="text-gradient">Marvel.</span></h2>
+            
+            <div class="space-y-6">
+              <div class="flex items-start glass p-6 rounded-2xl hover-3d w-full">
+                <div class="w-12 h-12 rounded-full bg-primary-600 flex items-center justify-center text-white mr-6 flex-shrink-0 shadow-lg shadow-primary-500/50">1</div>
+                <div>
+                  <h4 class="text-xl font-bold mb-2">Vapor Chamber Cooling</h4>
+                  <p class="text-gray-500">Stays icy cold even during intense 3D gaming sessions.</p>
+                </div>
+              </div>
+              <div class="flex items-start glass p-6 rounded-2xl hover-3d w-full">
+                <div class="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center text-white mr-6 flex-shrink-0 shadow-lg shadow-cyan-500/50">2</div>
+                <div>
+                  <h4 class="text-xl font-bold mb-2">Ceramic Shield Glass</h4>
+                  <p class="text-gray-500">4x better drop performance than the previous generation.</p>
+                </div>
+              </div>
+              <div class="flex items-start glass p-6 rounded-2xl hover-3d w-full">
+                <div class="w-12 h-12 rounded-full bg-pink-500 flex items-center justify-center text-white mr-6 flex-shrink-0 shadow-lg shadow-pink-500/50">3</div>
+                <div>
+                  <h4 class="text-xl font-bold mb-2">Haptic Engine 2.0</h4>
+                  <p class="text-gray-500">Feel every click, scroll, and action with precise vibrations.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-20 relative text-center px-4">
+    <div class="max-w-4xl mx-auto glass-card p-16 rounded-[4rem] border-primary-500/50 neon-glow" data-aos="zoom-in">
+      <h2 class="text-5xl font-black mb-6">Ready to Step into the Future?</h2>
+      <p class="text-xl text-gray-500 mb-10">Join the NEXORA revolution and experience technology like never before.</p>
+      <a href="products.html" class="btn-primary py-4 px-6 sm:py-5 sm:px-12 rounded-full font-bold text-base sm:text-xl inline-block hover-3d whitespace-nowrap shadow-[0_0_50px_rgba(79,70,229,0.6)]">
+        Shop The Collection Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Newsletter & Footer -->
+  <footer class="bg-bg-light dark:bg-bg-dark pt-20 pb-10 mt-20 relative overflow-hidden border-t border-gray-200 dark:border-gray-800">
+    <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
+      <div class="bg-orb w-64 h-64 bg-primary-600/40 bottom-0 left-0"></div>
+      <div class="bg-orb w-64 h-64 bg-cyan-500/30 top-0 right-0"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Newsletter -->
+      <div class="glass-card rounded-[3rem] p-10 mb-16 relative overflow-hidden border-primary-500/20 neon-glow" data-aos="fade-up">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-900/10 to-cyan-900/10"></div>
+        <div class="relative z-10 flex flex-col md:flex-row items-center justify-between">
+          <div class="mb-6 md:mb-0 md:mr-8">
+            <h3 class="text-3xl font-black mb-2">Join the Future</h3>
+            <p class="text-gray-500">Subscribe for the latest tech news and exclusive pre-orders.</p>
+          </div>
+          <div class="w-full md:w-auto flex-1 max-w-md">
+            <form class="flex w-full relative">
+              <input type="email" placeholder="Enter your email" class="w-full py-4 pl-6 pr-44 rounded-full glass border border-gray-300 dark:border-gray-700 text-text-light dark:text-text-dark focus:outline-none focus:border-primary-500 transition shadow-inner text-ellipsis">
+              <button type="submit" class="absolute right-2 top-2 bottom-2 bg-gradient-to-r from-primary-600 to-cyan-500 hover:from-primary-500 hover:to-cyan-400 text-white font-bold px-4 sm:px-6 rounded-full transition shadow-[0_0_20px_rgba(79,70,229,0.4)] whitespace-nowrap">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Content -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12 pb-12 border-b border-gray-200 dark:border-gray-800">
+        <div class="lg:col-span-2">
+          <div class="flex items-center space-x-2 mb-6 cursor-pointer" onclick="window.location.href='index.html'">
+            <img src="assets/images/logo.jpg" alt="NEXORA Logo" class="w-10 h-10 rounded-xl hover-3d neon-glow object-cover">
+            <span class="brand-font font-black text-2xl tracking-tight">NEXORA</span>
+          </div>
+          <p class="text-gray-500 mb-6 max-w-sm">
+            Elevating your digital lifestyle with premium electronics, 3D displays, and revolutionary smartphone technology.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center text-gray-500 hover:text-primary-600 hover-3d transition"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center text-gray-500 hover:text-primary-600 hover-3d transition"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center text-gray-500 hover:text-primary-600 hover-3d transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center text-gray-500 hover:text-primary-600 hover-3d transition"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-6 tracking-wide">Products</h4>
+          <ul class="space-y-3 text-gray-500">
+            <li><a href="products.html" class="hover:text-primary-500 transition">Smartphones</a></li>
+            <li><a href="#" class="hover:text-primary-500 transition">Tablets</a></li>
+            <li><a href="#" class="hover:text-primary-500 transition">Wearables</a></li>
+            <li><a href="#" class="hover:text-primary-500 transition">Accessories</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-6 tracking-wide">Support</h4>
+          <ul class="space-y-3 text-gray-500">
+            <li><a href="#" class="hover:text-primary-500 transition">Contact Us</a></li>
+            <li><a href="#" class="hover:text-primary-500 transition">FAQs</a></li>
+            <li><a href="#" class="hover:text-primary-500 transition">Warranty</a></li>
+            <li><a href="#" class="hover:text-primary-500 transition">Shipping Info</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-6 tracking-wide">Company</h4>
+          <ul class="space-y-3 text-gray-500">
+            <li><a href="#" class="hover:text-primary-500 transition">About Us</a></li>
+            <li><a href="#" class="hover:text-primary-500 transition">Careers</a></li>
+            <li><a href="#" class="hover:text-primary-500 transition">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-primary-500 transition">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
+        <p>&copy; 2026 NEXORA Technologies. All rights reserved.</p>
+        <div class="flex space-x-4 mt-4 md:mt-0 text-2xl items-center">
+          <i class="fab fa-cc-visa hover:text-primary-500 transition cursor-pointer"></i>
+          <i class="fab fa-cc-mastercard hover:text-primary-500 transition cursor-pointer"></i>
+          <i class="fab fa-cc-paypal hover:text-primary-500 transition cursor-pointer"></i>
+          <i class="fab fa-cc-apple-pay hover:text-primary-500 transition cursor-pointer"></i>
+          <div class="w-px h-6 bg-gray-300 dark:bg-gray-700 mx-2 hidden md:block"></div>
+          <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-8 h-8 rounded-full glass border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-500 hover:text-primary-600 hover:border-primary-500 transition group text-sm" title="Back to top">
+            <i class="fas fa-arrow-up group-hover:-translate-y-1 transition-transform"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

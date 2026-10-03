@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | NEXORA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: { primary: { 50: '#eef2ff', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', } } } }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+</head>
+<body class="bg-bg-light text-text-light dark:bg-bg-dark dark:text-text-dark font-sans antialiased transition-colors duration-300 min-h-screen flex flex-col relative overflow-x-hidden">
+
+  <!-- Background Orbs -->
+  <div class="fixed inset-0 z-0 opacity-40 pointer-events-none">
+    <div class="bg-orb w-[40rem] h-[40rem] bg-primary-600/30 top-[-10%] left-[-10%] mix-blend-screen"></div>
+    <div class="bg-orb w-[30rem] h-[30rem] bg-cyan-500/20 bottom-0 right-0 mix-blend-screen" style="animation-delay: -2s;"></div>
+    <div class="bg-orb w-[20rem] h-[20rem] bg-purple-500/20 top-[40%] left-[40%] mix-blend-screen" style="animation-delay: -4s;"></div>
+  </div>
+
+  <div class="flex-1 flex items-center justify-center relative z-10 py-12 px-4 sm:px-6 lg:px-8 mt-16">
+
+    
+    <div class="w-full max-w-md space-y-8 glass-card rounded-[2.5rem] p-10 border-primary-500/20 hover-glow" data-aos="zoom-in" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
+      <div>
+        <div class="flex justify-center items-center gap-3 mb-6 cursor-pointer" onclick="window.location.href='index.html'">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(79,70,229,0.5)] border border-white/20">
+            <img src="assets/images/logo.jpg" alt="Logo" class="w-full h-full object-cover rounded-2xl">
+          </div>
+          <span class="brand-font font-black text-4xl tracking-tighter">NEXORA</span>
+        </div>
+        <h2 class="mt-2 text-center text-3xl font-black tracking-tight text-gradient">
+          Welcome Back
+        </h2>
+        <p class="mt-2 text-center text-sm text-gray-500">
+          Sign in to access your NEXORA account
+        </p>
+      </div>
+      <form class="mt-8 space-y-6" action="dashboard.html" method="GET">
+        <div class="space-y-4">
+          <div>
+            <label for="email-address" class="sr-only">Email address</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <i class="fas fa-envelope text-gray-400"></i>
+              </div>
+              <input id="email-address" name="email" type="email" autocomplete="email" required class="appearance-none rounded-2xl relative block w-full px-3 py-4 pl-12 glass border border-gray-300 dark:border-white/10 placeholder-gray-500 text-text-light dark:text-text-dark focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 sm:text-sm transition-all bg-white/40 dark:bg-black/20" placeholder="Email address">
+            </div>
+          </div>
+          <div>
+            <label for="password" class="sr-only">Password</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <i class="fas fa-lock text-gray-400"></i>
+              </div>
+              <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-2xl relative block w-full px-3 py-4 pl-12 pr-12 glass border border-gray-300 dark:border-white/10 placeholder-gray-500 text-text-light dark:text-text-dark focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 sm:text-sm transition-all bg-white/40 dark:bg-black/20" placeholder="Password">
+              <button type="button" class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-primary-600 transition" onclick="togglePassword('password', this)">
+                <i class="far fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded bg-white/50">
+            <label for="remember-me" class="ml-2 block text-sm text-gray-500">
+              Remember me
+            </label>
+          </div>
+
+          <div class="text-sm">
+            <a href="#" class="font-medium text-primary-600 hover:text-primary-500 transition">
+              Forgot password?
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <button type="submit" class="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-bold rounded-2xl text-white bg-gradient-to-r from-primary-600 to-cyan-500 hover:from-primary-500 hover:to-cyan-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 shadow-[0_10px_20px_rgba(79,70,229,0.3)] hover:shadow-[0_15px_30px_rgba(79,70,229,0.5)] hover:-translate-y-1 transition-all duration-300">
+            Sign in
+          </button>
+        </div>
+        
+        <div class="mt-6">
+          <div class="relative">
+            <div class="absolute inset-0 flex items-center">
+              <div class="w-full border-t border-gray-300 dark:border-gray-700"></div>
+            </div>
+            <div class="relative flex justify-center text-sm">
+              <span class="px-3 bg-bg-light dark:bg-[#1a1b26] text-gray-500 rounded-full text-xs font-medium uppercase tracking-wider">
+                Or continue with
+              </span>
+            </div>
+          </div>
+
+          <div class="mt-6 grid grid-cols-3 gap-4">
+            <a href="#" class="w-full inline-flex justify-center items-center py-3 px-4 border border-gray-300 dark:border-gray-700 rounded-xl bg-white/50 dark:bg-black/30 text-sm font-medium text-gray-500 hover:bg-white dark:hover:bg-gray-800 hover:border-primary-500 hover:text-red-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+              <span class="sr-only">Sign in with Google</span>
+              <i class="fab fa-google text-xl group-hover:scale-110 transition-transform"></i>
+            </a>
+            <a href="#" class="w-full inline-flex justify-center items-center py-3 px-4 border border-gray-300 dark:border-gray-700 rounded-xl bg-white/50 dark:bg-black/30 text-sm font-medium text-gray-500 hover:bg-white dark:hover:bg-gray-800 hover:border-primary-500 hover:text-[#1877F2] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+              <span class="sr-only">Sign in with Facebook</span>
+              <i class="fab fa-facebook-f text-xl group-hover:scale-110 transition-transform"></i>
+            </a>
+            <a href="#" class="w-full inline-flex justify-center items-center py-3 px-4 border border-gray-300 dark:border-gray-700 rounded-xl bg-white/50 dark:bg-black/30 text-sm font-medium text-gray-500 hover:bg-white dark:hover:bg-gray-800 hover:border-primary-500 hover:text-gray-900 dark:hover:text-white hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+              <span class="sr-only">Sign in with Apple</span>
+              <i class="fab fa-apple text-2xl group-hover:scale-110 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+      </form>
+      <p class="mt-8 text-center text-sm text-gray-500">
+        Don't have an account? 
+        <a href="signup.html" class="font-bold text-primary-600 hover:text-primary-500 transition">
+          Sign up now
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Theme Toggle Floating Button -->
+  <button id="theme-toggle" class="fixed top-6 right-6 w-12 h-12 rounded-full glass flex items-center justify-center text-gray-500 hover:text-primary-600 shadow-lg z-50 hover-3d transition">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
