@@ -11,10 +11,14 @@
   --text-dark: #ffffff;
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
   font-family: 'Outfit', sans-serif;
   transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow-x: hidden;
   background-color: var(--bg-light);
   color: var(--text-light);
 }
